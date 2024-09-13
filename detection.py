@@ -54,7 +54,7 @@ while(True):
         r_eye= r_eye/255                  
         r_eye=  r_eye.reshape(100,100,-1)
         r_eye = np.expand_dims(r_eye,axis=0)
-        rpred = model.predict_classes(r_eye)
+        rpred = model.predict_step(r_eye)
 
         if(rpred[0]==1):
             lbl='Open' 
@@ -70,7 +70,7 @@ while(True):
         l_eye= l_eye/255
         l_eye=l_eye.reshape(100,100,-1)
         l_eye = np.expand_dims(l_eye,axis=0)
-        lpred = model.predict_classes(l_eye)
+        lpred = model.predict_step(l_eye)
         if(lpred[0]==1):
             lbl='Open'   
         if(lpred[0]==0):
